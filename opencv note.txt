@@ -1,0 +1,139 @@
+python open cv
+open computer vision.
+it is a bridge between computer and visuvalization.
+it allow the computer to read and process the image very easily.
+it is used in the web cam.
+for example if there is a apple the opencv can give color size and etc.
+used in many languages.
+it can be used in the windows,linix and mac os also.
+it used to faces in many applications in the real life.
+it can works along with pandas and numpy.
+pip install opencv-python
+import cv2
+four steps:
+1.gathering some inforamtion
+2.data processing
+3.model training
+4.model evaluation
+
+steps in under satnding the image by a computer
+1.inputting a image
+2.extracting the rgb values at each pixel
+3.resizing the image for operation
+4.image recognization/detection algorithums.
+5.adding artifacts(shapes) that hepls with the above steps.
+6.dispaly the result.
+
+some imporatnt functios
+cv2.imread()- used input an image
+cv2.imshow()-it is used to display the image.
+cv.imwrite()- used to change the actual image file.
+
+cv2.imread():
+syntax :cv2.imread(file path, flag)
+file path :location
+falg:this give in which way a image have to be read (greyscale or color).
+returns images
+
+cv2.imshow():
+synatax:cv2.imshow(window name,image ot be dispalyed)
+window name: name of the window which will be dispalyed.
+returns nothing
+
+cv2.imwrite():
+syntax:cv2.imwrite(filename,image to be saved)
+filename:name of the file to be saved with extension
+image to be saved
+returns true
+
+to get the dimensions of hte picture use 
+image_Read.shape[:2]
+number of pixels is the multiplication of the rows and the columns which are given at the out.
+(rows,colomns)
+
+to get the rcb values of the pixels 
+(r,g,b)=image_read[row,col] addresing and getting the rgb of a pixel.
+to get the individual we can use [row,col,adder]
+
+to resize a iamge:
+var=cv2.resize(image_read,(row,col))
+a new image will be created in the varible var.
+
+to draw a shape on the image we can use 
+cv.rectangle(image_read,(p1,p2),(p3,p4),(col,col,col),width).
+
+to keep a text on the image we can use
+cv2.putText(image_read,text,(row,col),cv2.font_hershey_simplex,fontsize,(colr,colr,colr))
+
+to get the shape :
+h,w,d=image_read.size
+d=depth
+cv2.waitkey(0) is used to wait while showing a image untill used colsed
+and 
+cv2.destroyAllWindows() is used to colse all windows
+
+facedetection
+it will use algorithm like viola-jones algorithm in vary popular.
+
+face detection means no comaparison 
+just detects the a face
+there is a face 
+
+
+face recognisation:
+it is verifying the identity of a person.
+deep learing is used for face recognization.
+it is used in many applicaions. 
+there is a particular face
+it also need face detection
+
+
+the all featurures of the face is stored as vector of 128 numbers.
+
+
+face detection using deep learining
+step1:
+face detection
+setp2:
+feature extraction
+face embadding used with each face to convert the features into the vector called as deep metric learining.
+step3:
+training neural network
+step4:
+feature map across the face
+mappinig all the images of a same pearson
+step5:
+embeddings for images are obtained after training 
+
+for face detection we can use predefined xml files
+import cv2 as c
+face_cascade=c.CascadeClassifier(r"C:\Users\dell\Desktop\python\opencv\face_detector.xml")
+img=c.imread('dad.jpg')
+faces=face_cascade.detectMultiScale(img,1.1,4)
+for (x,y,w,h) in faces:
+    c.rectangle(img,(x,y),(x+w,y+h),(255,0,0),4)
+print(len(faces))
+c.imwrite("detectface.jpg",img)
+print("photo sucessfully detected")
+
+to convert into diffrent colors:
+Color Mode	OpenCV Code
+Grayscale	cv2.COLOR_BGR2GRAY
+HSV (Hue, Saturation, Value)cv2.COLOR_BGR2HSV
+LAB (Lab Color Space)*	cv2.COLOR_BGR2LAB
+RGB (Rearrange BGR to RGB)	cv2.COLOR_BGR2RGB
+YCrCb (Luminance, Chrominance Blue, Chrominance Red)
+	cv2.COLOR_BGR2YCrCb
+ ex:gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+
+OpenCV Font Types:
+cv2.FONT_HERSHEY_SIMPLEX – Normal size sans-serif font
+cv2.FONT_HERSHEY_PLAIN – Smaller, simpler font
+cv2.FONT_HERSHEY_DUPLEX – Similar to SIMPLEX but with thicker letters
+cv2.FONT_HERSHEY_COMPLEX – More complex serif font
+cv2.FONT_HERSHEY_TRIPLEX – Thicker version of COMPLEX
+cv2.FONT_HERSHEY_COMPLEX_SMALL – Smaller version of COMPLEX
+cv2.FONT_HERSHEY_SCRIPT_SIMPLEX – Handwriting-style script font
+cv2.FONT_HERSHEY_SCRIPT_COMPLEX – More elaborate script font
+cv2.FONT_ITALIC – Can be combined with any of the above to make text italic
